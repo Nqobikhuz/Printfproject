@@ -9,13 +9,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, ch, num = 0;
+	int i, ch, num = 0;
 	char *string;
 	va_list arg;
 
 	va_start(arg, format);
 
-	while (format[i])
+	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -31,8 +31,7 @@ int _printf(const char *format, ...)
 					string = va_arg(arg, char *);
 					while (*string)
 					{
-						putchar(*string);
-						string++;
+						putchar(*string++);
 						num++;
 					}
 					break;
