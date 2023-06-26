@@ -9,8 +9,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, num = 0;
-	char *string;
+	int i, length, num = 0;
+	char *string, percent, ch;
 	va_list arg;
 
 	va_start(arg, format);
@@ -23,38 +23,33 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					_putchar((char)va_arg(arg, int));
+					ch = ((char)va_arg(arg, int));
+					write(1, &ch, 1);
 					num++;
 					break;
 				case 's':
 					string = va_arg(arg, char *);
-					while (*string)
+					length = 0;
+					while (string[length] != '\0')
 					{
-						_putchar(*string++);
+						write(1, &string[length], sizeof(char));
+						length++;
 						num++;
 					}
 					break;
 				case '%':
-					_putchar('%');
-					num++;
+					percent = '%';
+					write(1, &percent, 1);
 					break;
 				default:
-					_putchar('%');
-					_putchar(format[i]);
-					num++;
 					break;
 				}
 		}
 		else
 		{
-			_putchar(format[i]);
+			write(1, &format[i], 1);
 			num++;
 		}
-	}
-
-	if (format[i] == '\0')
-	{
-		return (-1);
 	}
 
 	va_end(arg);

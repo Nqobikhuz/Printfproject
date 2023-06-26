@@ -9,13 +9,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, ch, num = 0;
+	int i, num = 0;
 	char *string;
 	va_list arg;
 
 	va_start(arg, format);
 
-	for (i = 0; format[i]; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -23,35 +23,35 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					ch = va_arg(arg, int);
-					putchar(ch);
+					_putchar((char)va_arg(arg, int));
 					num++;
 					break;
 				case 's':
 					string = va_arg(arg, char *);
 					while (*string)
 					{
-						putchar(*string++);
+						_putchar(*string++);
 						num++;
 					}
 					break;
 				case '%':
-					putchar('%');
+					_putchar('%');
 					num++;
 					break;
 				default:
-					putchar(format[i]);
+					_putchar('%');
+					_putchar(format[i]);
 					num++;
 					break;
 				}
 		}
 		else
 		{
-			putchar(format[i]);
+			_putchar(format[i]);
 			num++;
 		}
-		i++;
 	}
+
 	va_end(arg);
 	return (num);
 }
