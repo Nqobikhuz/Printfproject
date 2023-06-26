@@ -25,7 +25,6 @@ int _printf(const char *format, ...)
 				case 'c':
 					_putchar((char)va_arg(arg, int));
 					num++;
-					i++;
 					break;
 				case 's':
 					string = va_arg(arg, char *);
