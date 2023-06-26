@@ -51,6 +51,12 @@ int _printf(const char *format, ...)
 			num++;
 		}
 	}
+
+	if (format[i] == '\0')
+	{
+		return (-1);
+	}
+
 	va_end(arg);
 	return (num);
 }
