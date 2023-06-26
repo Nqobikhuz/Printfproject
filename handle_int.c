@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include "main.h"
 /**
  *_printf- produces output according to a format
@@ -8,7 +7,6 @@
 
 int handle_int(int int_dec)
 {
-
 int count = 0;
 
 if (int_dec < 0)
