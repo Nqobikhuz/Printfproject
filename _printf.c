@@ -9,18 +9,18 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, num = 0;
+  int i, num = 0;
 	char *string;
 	va_list arg;
 
 	va_start(arg, format);
 
-	for (i = 0; format[i]; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i + 1])
+			switch (format[i])
 			{
 				case 'c':
 					_putchar((char)va_arg(arg, int));
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 					string = va_arg(arg, char *);
 					while (*string)
 					{
-						_putchar(*string++);
+						_putchar(*string);
 						num++;
 						string++;
 					}
@@ -39,11 +39,17 @@ int _printf(const char *format, ...)
 					_putchar('%');
 					num++;
 					break;
+
+	      case 'd':
+	      case 'i':
+
+              num += handle_int(va_arg(arg, int));
+              break;
 				default:
 					_putchar(format[i]);
 					num++;
 					break;
-				}
+			}
 		}
 		else
 		{
