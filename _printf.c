@@ -23,11 +23,14 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
+					{
 					ch = ((char)va_arg(arg, int));
 					write(1, &ch, 1);
 					num++;
 					break;
+					}
 				case 's':
+					{
 					string = va_arg(arg, char *);
 					length = 0;
 					while (string[length] != '\0')
@@ -37,10 +40,13 @@ int _printf(const char *format, ...)
 						num++;
 					}
 					break;
+					}
 				case '%':
+					{
 					percent = '%';
 					write(1, &percent, 1);
 					break;
+					}
 				default:
 					break;
 				}
