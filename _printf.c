@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
  * _printf - produces output according to a format
@@ -11,58 +10,18 @@
 int _printf(const char *format, ...)
 {
 
-int i = 0, num = 0;
-char *string, ch;
-
+int numb_chars_printed;
 va_list arg;
-
 va_start(arg, format);
 
-for (i = 0; format[i] != '\0'; i++)
-{
-if (format[i] == '%')
-{
-i++;
-switch (format[i])
-{
-case 'c':
-ch = va_arg(arg, int);
-_putchar(ch);
-num++;
-break;
+numb_chars_printed = switch_function(format, arg);
 
-case 's':
-string = va_arg(arg, char *);
-while (*string)
-{
-_putchar(*string);
-num++;
-string++;
-}
-break;
 
-case '%':
-_putchar('%');
-num++;
-break;
-
-case 'd':
-case 'i':
-num += handle_int(va_arg(arg, int));
-break;
-
-default:
-break;
-}
-}
-else
-{
-_putchar(format[i]);
-num++;
-}
-}
 va_end(arg);
-return (num);
+return (numb_chars_printed);
+
+
+
 }
 
 

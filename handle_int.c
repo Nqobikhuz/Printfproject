@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- *_printf- produces output according to a format
- *@format: character string
+ *_handle_int- handles the decimal and integer specifiers
+ *@int_dec: integer/decimal value being passed
  *Return: number of characters printed
  */
 
