@@ -51,19 +51,20 @@ return (count);
 
 int handle_string(char *string)
 {
-int num = 0;
-int i = 0;
+	int num = 0;
+	int i = 0;
 
-if (*string == '\0')
-{
-	return (-1);
-}
+	if (string[i] == '\0')
+	{
+		return (-1);
+	}
 
-while (string[i] != '\0')
-{
-_putchar(string[i]);
-num++;
-string++;
-}
-return (i);
+	while (string[i] != '\0')
+	{
+		_putchar(string[i]);
+		num++;
+		string++;
+	}
+
+	return (num);
 }
