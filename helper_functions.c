@@ -9,11 +9,11 @@
 int handle_char(int c)
 {
 
-	if (c)
-	return (_putchar(c));
+if (c)
+return (_putchar(c));
 
-	else
-	return (0);
+else
+return (0);
 
 }
 
@@ -25,21 +25,21 @@ int handle_char(int c)
 
 int handle_int(int int_dec)
 {
-	int count = 0;
-	char c = '-';
+int count = 0;
+char c = '-';
 
-	if (int_dec < 0)
-	{
-	count += _putchar(c);
-	int_dec *= -1;
-	}
+if (int_dec < 0)
+{
+count += _putchar(c);
+int_dec *= -1;
+}
 
-	if (int_dec / 10 != 0)
-	count += handle_int(int_dec / 10);
+if (int_dec / 10 != 0)
+count += handle_int(int_dec / 10);
 
-	count += _putchar(int_dec % 10 + '0');
+count += _putchar(int_dec % 10 + '0');
 
-	return (count);
+return (count);
 
 }
 
@@ -51,18 +51,16 @@ int handle_int(int int_dec)
 
 int handle_string(char *string)
 {
-	int num = 0;
+int num = 0;
 
-	if (*string == '\0')
-	return (num);
+if (*string == '\0')
+return (num);
 
-
-	while (*string)
-	{
-	_putchar(*string);
-	num++;
-	string++;
-	}
-
-	return (num);
+while (*string)
+{
+_putchar(*string);
+num++;
+string++;
+}
+return (num);
 }
