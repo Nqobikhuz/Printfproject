@@ -52,17 +52,18 @@ return (count);
 int handle_string(char *string)
 {
 int num = 0;
+int i = 0;
 
 if (*string == '\0')
-return (num);
-else
-	return(-1);
-
-while (*string)
 {
-_putchar(*string);
+	return (-1);
+}
+
+while (string[i] != '\0')
+{
+_putchar(string[i]);
 num++;
 string++;
 }
-return (num);
+return (i);
 }
