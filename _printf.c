@@ -20,8 +20,6 @@ numb_chars_printed = switch_function(ptr, arg);
 va_end(arg);
 return (numb_chars_printed);
 
-
-
 }
 
 
