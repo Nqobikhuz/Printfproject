@@ -8,13 +8,13 @@
 
 int handle_char(int c)
 {
-int count = 0;
 
 if (c)
-_putchar(c);
-count++;
+return (_putchar(c));
 
-return (count);
+else
+return (0);
+
 }
 
 /**
@@ -50,17 +50,19 @@ return (count);
 
 int handle_string(char *string)
 {
-int count = 0;
+int num = 0;
 
-if (*string)
-{
-while (*string)
+if (*string == '\0')
+return (num);
+
+
+while (*string != '\0')
 {
 _putchar(*string);
-count++;
+num++;
 string++;
 }
-}
 
-return (count);
+  
+return (num);
 }
