@@ -1,14 +1,15 @@
 #include "main.h"
+
 /**
- *switch_function-is called by _printf
- *prints output according to format 
+ *switch_function- calls helper function depending on format
  *@format: format string
+ *@arg: arguments
  *Return: the number of characters printed
  */
+
 int switch_function(const char *format, va_list arg)
 {
 int i = 0, num = 0;
-char *string, ch;
 
 for (i = 0; format[i] != '\0'; i++)
 {
@@ -18,29 +19,21 @@ i++;
 switch (format[i])
 {
 case 'c':
-ch = va_arg(arg, int);
-_putchar(ch);
-num++;
-break;
-case 's':
-string = va_arg(arg, char *);
-while (*string)
-{
-_putchar(*string);
-num++;
-string++;
-}
+num += handle_char(va_arg(arg, int));
 break;
 
+case 's':
+num += handle_string(va_arg(arg, char *));
+break;
 case '%':
 _putchar('%');
 num++;
 break;
+
 case 'd':
 case 'i':
 num += handle_int(va_arg(arg, int));
 break;
-
 default:
 break;
 }
@@ -54,3 +47,4 @@ num++;
 
 return (num);
 }
+

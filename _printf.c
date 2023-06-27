@@ -9,12 +9,12 @@
  */
 int _printf(const char *format, ...)
 {
-
+const char *ptr = format;
 int numb_chars_printed;
 va_list arg;
 va_start(arg, format);
 
-numb_chars_printed = switch_function(format, arg);
+numb_chars_printed = switch_function(ptr, arg);
 
 
 va_end(arg);
