@@ -10,7 +10,6 @@
 int switch_function(const char *format, va_list arg)
 {
 int i = 0, num = 0;
-
 for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
@@ -21,7 +20,6 @@ switch (format[i])
 case 'c':
 num += handle_char(va_arg(arg, int));
 break;
-
 case 's':
 num += handle_string(va_arg(arg, char *));
 break;
@@ -33,7 +31,6 @@ if ('%' == '\0')
 	_putchar('%');
 num++;
 break;
-
 case 'd':
 case 'i':
 num += handle_int(va_arg(arg, int));
