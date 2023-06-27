@@ -26,7 +26,11 @@ case 's':
 num += handle_string(va_arg(arg, char *));
 break;
 case '%':
-_putchar('%');
+if ('%' == '\0')
+	return (-1);
+
+	else
+	_putchar('%');
 num++;
 break;
 

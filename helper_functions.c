@@ -55,6 +55,8 @@ int num = 0;
 
 if (*string == '\0')
 return (num);
+else
+	return(-1);
 
 while (*string)
 {
