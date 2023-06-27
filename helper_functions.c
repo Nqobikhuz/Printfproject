@@ -9,12 +9,14 @@
 int handle_char(int c)
 {
 
-if (c)
+if (c != '\0')
+{
 return (_putchar(c));
-
+}
 else
-return (0);
-
+{
+return (-1);
+}
 }
 
 /**
