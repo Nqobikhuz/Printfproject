@@ -62,7 +62,6 @@ _putchar(*string);
 num++;
 string++;
 }
-num--;
 
   
 return (num);
