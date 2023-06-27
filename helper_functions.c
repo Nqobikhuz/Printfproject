@@ -56,12 +56,13 @@ if (*string == '\0')
 return (num);
 
 
-while (*string != '\0')
+while (*string)
 {
 _putchar(*string);
 num++;
 string++;
 }
+num--;
 
   
 return (num);
