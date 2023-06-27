@@ -26,10 +26,10 @@ return (0);
 int handle_int(int int_dec)
 {
 int count = 0;
-
+char c = '-';
 if (int_dec < 0)
 {
-count += _putchar('-');
+count += _putchar(c);
 int_dec *= -1;
 }
 
