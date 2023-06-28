@@ -9,12 +9,14 @@
 int handle_char(int c)
 {
 
-if (c)
+if (c != '\0')
+{
 return (_putchar(c));
-
+}
 else
-return (0);
-
+{
+return (-1);
+}
 }
 
 /**
@@ -27,6 +29,7 @@ int handle_int(int int_dec)
 {
 int count = 0;
 char c = '-';
+
 if (int_dec < 0)
 {
 count += _putchar(c);
@@ -50,19 +53,20 @@ return (count);
 
 int handle_string(char *string)
 {
-int num = 0;
+	int num = 0;
+	int i = 0;
 
-if (*string == '\0')
-return (num);
+	if (string[i] == '\0')
+	{
+		return (-1);
+	}
 
+	while (string[i] != '\0')
+	{
+		_putchar(string[i]);
+		num++;
+		string++;
+	}
 
-while (*string)
-{
-_putchar(*string);
-num++;
-string++;
-}
-
-  
-return (num);
+	return (num);
 }

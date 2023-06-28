@@ -19,15 +19,17 @@ switch (format[i])
 case 'c':
 num += handle_char(va_arg(arg, int));
 break;
-
 case 's':
 num += handle_string(va_arg(arg, char *));
 break;
 case '%':
-_putchar('%');
+if ('%' == '\0')
+	return (-1);
+
+	else
+	_putchar('%');
 num++;
 break;
-
 case 'd':
 case 'i':
 num += handle_int(va_arg(arg, int));

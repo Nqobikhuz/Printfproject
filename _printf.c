@@ -18,7 +18,10 @@ num_chars = switch_function(format, arg);
 
 
 va_end(arg);
+
 return (num_chars);
+
+
 }
 
 
