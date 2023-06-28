@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *switch_function- calls helper function depending on format
  *@format: format string
@@ -10,7 +9,6 @@
 int switch_function(const char *format, va_list arg)
 {
 int i = 0, num = 0;
-
 for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
@@ -34,6 +32,22 @@ case 'd':
 case 'i':
 num += handle_int(va_arg(arg, int));
 break;
+
+case 'u':
+num += handle_unsigned(va_arg(arg, unsigned int));
+break;
+case 'o':
+num += handle_octal(va_arg(arg, unsigned int));
+break;
+
+case 'x':
+num += handle_hexadecimal_lower(va_arg(arg, unsigned int));
+break;
+
+case 'X':
+num += handle_hexadecimal_upper(va_arg(arg, unsigned int));
+break;
+ 
 default:
 break;
 }
@@ -47,4 +61,3 @@ num++;
 
 return (num);
 }
-

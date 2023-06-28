@@ -9,19 +9,16 @@
  */
 int _printf(const char *format, ...)
 {
-const char *ptr = format;
-int numb_chars_printed;
+
+int num_chars;
 va_list arg;
 va_start(arg, format);
 
-numb_chars_printed = switch_function(ptr, arg);
+num_chars = switch_function(format, arg);
 
 
 va_end(arg);
-return (numb_chars_printed);
-
-
-
+return (num_chars);
 }
 
 
